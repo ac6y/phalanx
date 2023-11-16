@@ -26,6 +26,6 @@ template:
               pathType: "Prefix"
               backend:
                 service:
-                  name: ""
+                  name: "schedview-prenight"
                   port:
                     number: 8080
