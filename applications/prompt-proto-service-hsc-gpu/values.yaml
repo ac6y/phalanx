@@ -3,7 +3,7 @@ prompt-proto-service:
   # -- Annotations for the prompt-proto-service pod
   # @default -- See the `values.yaml` file.
   podAnnotations:
-    autoscaling.knative.dev/min-scale: "0"
+    autoscaling.knative.dev/min-scale: "1"
     autoscaling.knative.dev/max-scale: "100"
     autoscaling.knative.dev/target-utilization-percentage: "60"
     autoscaling.knative.dev/target-burst-capacity: "-1"
