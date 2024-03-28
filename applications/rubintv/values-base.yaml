@@ -1,5 +1,3 @@
-siteTag: "base"
-
 imagePullSecrets:
 - name: pull-secret
 

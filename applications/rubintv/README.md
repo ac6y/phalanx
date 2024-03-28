@@ -41,23 +41,3 @@ Real-time display front end
 | redis.podAnnotations | object | `{}` | Pod annotations for the Redis pod |
 | redis.resources | object | See `values.yaml` | Resource limits and requests for the Redis pod |
 | redis.tolerations | list | `[]` | Tolerations for the Redis pod |
-| siteTag | string | `""` | A special tag for letting the scripts know where they are running.  Must be overridden at each site |
-| workers.affinity | object | `{}` | Affinity rules for the rubintv worker pods |
-| workers.debug | bool | `false` | If set to true, enable more verbose logging. |
-| workers.env | list | `[]` | This section holds a list of key, value pairs for environmental variables (name: key, value: value). |
-| workers.envSecrets | list | See `values.yaml` | This section holds specifications for secret injection. |
-| workers.gid | string | `nil` | GID to run as (site-dependent as above) |
-| workers.image | object | `{"pullPolicy":"IfNotPresent","repository":"ts-dockerhub.lsst.org/rubintv-broadcaster","tag":"develop"}` | Settings for OCI image for worker pods |
-| workers.image.pullPolicy | string | `"IfNotPresent"` | The policy to apply when pulling an image for deployment. |
-| workers.image.repository | string | `"ts-dockerhub.lsst.org/rubintv-broadcaster"` | The Docker registry name for the container image. |
-| workers.image.tag | string | `"develop"` | The tag of the container image to use. |
-| workers.imagePullSecrets | list | See `values.yaml` | Image pull secrets. |
-| workers.nodeSelector | object | `{}` | Node selector rules for the rubintv worker pods |
-| workers.pathPrefix | string | `"/"` | Prefix for the (internal) worker API routes |
-| workers.podAnnotations | object | `{}` | Annotations for the rubintv worker pods |
-| workers.replicas | int | `5` | how many replicas to use |
-| workers.resources | object | `{}` | Resource limits and requests for the rubintv worker pods |
-| workers.script | string | `"slac/rubintv/workerPod1.py"` | Script that runs in RUN_ARG.  This dynamic mechanism needs to be replaced with something less scary, but there is resistance to that, at least while iterating. |
-| workers.tolerations | list | `[]` | Tolerations for the rubintv worker pods |
-| workers.uid | string | `nil` | UID to run as (site-dependent because of filesystem access; must be specified) |
-| workers.volumes | list | See `values.yaml` | Volumes for the rubintv worker pods |
