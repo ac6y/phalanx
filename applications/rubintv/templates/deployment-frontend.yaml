@@ -65,8 +65,8 @@ spec:
               mountPath: "/etc/secrets"
       securityContext:
         runAsNonRoot: true
-        runAsUser: 1000
-        runAsGroup: 1000
+        runAsUser: 73006
+        runAsGroup: 73006
       volumes:
         - name: {{ $.Release.Name }}-secrets
           secret:
