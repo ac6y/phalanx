@@ -4,7 +4,7 @@ Jeremy's bootcamp app
 
 ## Source Code
 
-* <https://github.com/lsst-sqre/jeremym-fastapi-example>
+* <https://github.com/lsst-dm/jeremym-fastapi-example>
 
 ## Values
 
@@ -18,7 +18,7 @@ Jeremy's bootcamp app
 | global.host | string | Set by Argo CD | Host name for ingress |
 | global.vaultSecretsPath | string | Set by Argo CD | Base path for Vault secrets |
 | image.pullPolicy | string | `"IfNotPresent"` | Pull policy for the jeremym-fastapi-example image |
-| image.repository | string | `"ghcr.io/lsst-sqre/jeremym-fastapi-example"` | Image to use in the jeremym-fastapi-example deployment |
+| image.repository | string | `"ghcr.io/lsst-dm/jeremym-fastapi-example"` | Image to use in the jeremym-fastapi-example deployment |
 | image.tag | string | `""` | Overrides the image tag whose default is the chart appVersion. |
 | ingress.annotations | object | `{}` | Additional annotations for the ingress rule |
 | nodeSelector | object | `{}` | Node selection rules for the jeremym-fastapi-example deployment pod |

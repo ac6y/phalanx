@@ -7,7 +7,7 @@ replicaCount: 1
 
 image:
   # -- Image to use in the jeremym-fastapi-example deployment
-  repository: "ghcr.io/lsst-sqre/jeremym-fastapi-example"
+  repository: "ghcr.io/lsst-dm/jeremym-fastapi-example"
 
   # -- Pull policy for the jeremym-fastapi-example image
   pullPolicy: "IfNotPresent"
