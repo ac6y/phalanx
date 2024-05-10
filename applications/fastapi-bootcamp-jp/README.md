@@ -18,7 +18,7 @@ A FastAPI greeter app
 | global.host | string | Set by Argo CD | Host name for ingress |
 | global.vaultSecretsPath | string | Set by Argo CD | Base path for Vault secrets |
 | image.pullPolicy | string | `"IfNotPresent"` | Pull policy for the fastapi-bootcamp-jp image |
-| image.repository | string | `"ghcr.io/lsst-sqre/fastapi-bootcamp-jp"` | Image to use in the fastapi-bootcamp-jp deployment |
+| image.repository | string | `"ghcr.io/lsst-sqre/fastapi-bootcamp"` | Image to use in the fastapi-bootcamp-jp deployment |
 | image.tag | string | `""` | Overrides the image tag whose default is the chart appVersion. |
 | ingress.annotations | object | `{}` | Additional annotations for the ingress rule |
 | nodeSelector | object | `{}` | Node selection rules for the fastapi-bootcamp-jp deployment pod |

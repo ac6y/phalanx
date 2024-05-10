@@ -7,7 +7,7 @@ replicaCount: 1
 
 image:
   # -- Image to use in the fastapi-bootcamp-jp deployment
-  repository: "ghcr.io/lsst-sqre/fastapi-bootcamp-jp"
+  repository: "ghcr.io/lsst-sqre/fastapi-bootcamp"
 
   # -- Pull policy for the fastapi-bootcamp-jp image
   pullPolicy: "IfNotPresent"
