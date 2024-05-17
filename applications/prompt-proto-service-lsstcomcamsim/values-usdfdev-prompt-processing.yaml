@@ -21,6 +21,9 @@ prompt-proto-service:
   s3:
     imageBucket: rubin-pp-dev
     endpointUrl: https://s3dfrgw.slac.stanford.edu
+    cred_file_auth: True
+    # do not set AWS_SECRET_ACCESS_KEY and AWS_ACCESS_KEY_ID. Use cred file
+    auth_env: False
 
   imageNotifications:
     kafkaClusterAddress: prompt-processing-kafka-bootstrap.kafka:9092
