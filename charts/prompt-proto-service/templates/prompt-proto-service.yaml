@@ -91,6 +91,10 @@ spec:
         - name: AWS_SHARED_CREDENTIALS_FILE
           value: /app/s3/credentials
         {{- end }}
+        {{- if .Values.s3.aws_profile }}
+        - name: AWS_PROFILE
+          value: {{.Values.s3.aws_profile }}
+        {{- end }}
         - name: PGPASSFILE
           value: /app/pgsql/.pgpass
         - name: LSST_DB_AUTH

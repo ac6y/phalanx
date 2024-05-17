@@ -24,6 +24,7 @@ prompt-proto-service:
     cred_file_auth: True
     # do not set AWS_SECRET_ACCESS_KEY and AWS_ACCESS_KEY_ID. Use cred file
     auth_env: False
+    aws_profile: embargo
 
   imageNotifications:
     kafkaClusterAddress: prompt-processing-kafka-bootstrap.kafka:9092
