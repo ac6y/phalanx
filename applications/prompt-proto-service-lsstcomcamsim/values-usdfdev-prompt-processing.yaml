@@ -19,18 +19,18 @@ prompt-proto-service:
     calibRepo: s3://rubin-pp-dev-users/central_repo/
 
   s3:
-    imageBucket: rubin-pp-dev
-    endpointUrl: https://s3dfrgw.slac.stanford.edu
+    imageBucket: repo-test
+    endpointUrl: https://sdfembs3.sdf.slac.stanford.edu
     cred_file_auth: True
     # do not set AWS_SECRET_ACCESS_KEY and AWS_ACCESS_KEY_ID. Use cred file
     auth_env: False
 
   imageNotifications:
     kafkaClusterAddress: prompt-processing-kafka-bootstrap.kafka:9092
-    topic: prompt-processing-dev
+    topic: repo-test
 
   apdb:
-    config: s3://rubin-pp-dev-users/apdb_config/pp_apdb_lsstcomcamsim-dev.py
+    config: s3://repo-test-users/apdb_config/pp_apdb_lsstcomcamsim-dev.py
 
   sasquatch:
     endpointUrl: https://usdf-rsp-dev.slac.stanford.edu/sasquatch-rest-proxy
