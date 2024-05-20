@@ -99,8 +99,6 @@ spec:
           value: /app/pgsql/.pgpass
         - name: LSST_DB_AUTH
           value: /app/lsst-credentials/db-auth.yaml
-        - name: LSST_RESOURCES_S3_PROFILE_default
-          value: https://s3dfrgw.slac.stanford.edu
         - name: AP_KAFKA_PRODUCER_PASSWORD
           valueFrom:
             secretKeyRef:
