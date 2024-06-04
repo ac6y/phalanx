@@ -94,6 +94,7 @@ kafdrop:
   ingress:
     enabled: true
     hostname: data-int.lsst.cloud
+  cmdArgs: "--message.format=AVRO --topic.deleteEnabled=true --topic.createEnabled=true"
 
 rest-proxy:
   enabled: true
