@@ -18,7 +18,7 @@ spec:
       {{- if .Values.kafkaController.storage.storageClassName }}
       class: {{ .Values.kafkaController.storage.storageClassName }}
       {{- end}}
-      deleteClaim: false
+      deleteClaim: true
   {{- with .Values.kafkaController.resources }}
   resources:
     {{- toYaml . | nindent 6 }}
@@ -46,7 +46,7 @@ spec:
       {{- if .Values.kafka.storage.storageClassName }}
       class: {{ .Values.kafka.storage.storageClassName }}
       {{- end}}
-      deleteClaim: false
+      deleteClaim: true
   {{- with .Values.kafka.resources }}
   resources:
     {{- toYaml . | nindent 6 }}
@@ -64,11 +64,6 @@ metadata:
 spec:
   kafka:
     template:
-      persistentVolumeClaim:
-        metadata:
-          annotations:
-            argocd.argoproj.io/compare-options: IgnoreExtraneous
-            argocd.argoproj.io/sync-options: Prune=false
       pod:
         {{- with .Values.kafka.affinity }}
         affinity:
@@ -177,7 +172,7 @@ spec:
         {{- if .Values.kafka.storage.storageClassName }}
         class: {{ .Values.kafka.storage.storageClassName }}
         {{- end}}
-        deleteClaim: false
+        deleteClaim: true
   entityOperator:
     topicOperator: {}
     userOperator: {}
