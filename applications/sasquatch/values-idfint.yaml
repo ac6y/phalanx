@@ -71,6 +71,11 @@ kafka-connect-manager:
         connectInfluxDb: "lsst.example"
         topicsRegex: "lsst.example.*"
         tags: band,instrument
+      lsst.backpack:
+        enabled: true
+        timestamp: "timestamp"
+        connectInfluxDb: "lsst.backpack"
+        topicsRegex: "lsst.backpack.*"
       lsst.atcamera:
         enabled: true
         timestamp: "timestamp"
@@ -103,6 +108,7 @@ rest-proxy:
     hostname: data-int.lsst.cloud
   kafka:
     topicPrefixes:
+      - lsst.backpack
       - lsst.example
       - lsst.ATCamera
       - lsst.CCCamera
