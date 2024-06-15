@@ -33,6 +33,29 @@ controller:
           volumeMounts:
             - containerPath: "/home"
               volumeName: "home"
+      nss:
+        # -- Base `/etc/passwd` file for lab containers
+        # @default -- See `values.yaml`
+        basePasswd: |
+          root:*:0:0:::
+          tss:*:59:59:::
+          lsst_local:*:1000:1000:::
+        # -- Base `/etc/group` file for lab containers
+        # @default -- See `values.yaml`
+        baseGroup: |
+          root:*:0:
+          tty:*:5:
+          mail:*:12:
+          utmp:*:22:
+          utempter:*:35:
+          lock:*:54:
+          tss:*:59:
+          dbus:*:81:
+          nobody:*:99:
+          stapusr:*:156:
+          systemd-network:*:192:
+          ssh_keys:*:998:
+          lsst_local:*:1000:
       secrets:
         - secretName: "nublado-lab-secret"
           secretKey: "aws-credentials.ini"
