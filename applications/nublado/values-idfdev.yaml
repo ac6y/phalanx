@@ -38,23 +38,32 @@ controller:
         # @default -- See `values.yaml`
         basePasswd: |
           root:*:0:0:::
+          _apt:*:42:65534:::
           tss:*:59:59:::
+          systemd-network:*:192:192:::
           lsst_local:*:1000:1000:::
         # -- Base `/etc/group` file for lab containers
         # @default -- See `values.yaml`
         baseGroup: |
           root:*:0:
+          adm:*:4:
           tty:*:5:
-          mail:*:12:
+          mail:*:8:
+          mail_c:*:12:
           utmp:*:22:
           utempter:*:35:
+          shadow:*:42:
+          utmp:*:43:
+          staff:*:50:
           lock:*:54:
           tss:*:59:
           dbus:*:81:
           nobody:*:99:
+          _ssh:*:101:
           stapusr:*:156:
           systemd-network:*:192:
           ssh_keys:*:998:
+          nogroup:*:65534:
           lsst_local:*:1000:
       secrets:
         - secretName: "nublado-lab-secret"
