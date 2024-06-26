@@ -32,10 +32,10 @@ spec:
     replicas: {{ .Values.kafka.replicas }}
     resources:
       requests:
-        memory: 16Gi
+        memory: 10Gi
         cpu: "4"
       limits:
-        memory: 32Gi
+        memory: 20Gi
         cpu: "8"
     listeners:
       - name: internal
