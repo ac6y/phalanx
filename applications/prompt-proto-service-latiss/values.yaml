@@ -125,11 +125,11 @@ prompt-proto-service:
     # -- The maximum memory limit.
     memoryLimit: "8Gi"
     # -- Maximum time that a container can respond to a next_visit request (seconds).
-    timeout: 900
+    timeout: 15
     # -- Maximum time that a container can send nothing to the fanout service (seconds).
-    idleTimeout: 900
+    idleTimeout: 15
     # -- Maximum time that a container can send nothing to the fanout service after initial submission (seconds).
-    responseStartTimeout: 900
+    responseStartTimeout: 15
 
   # -- Kubernetes YAML configs for extra container volume(s).
   # Any volumes required by other config options are automatically handled by the Helm chart.
