@@ -47,7 +47,7 @@ controller:
         - name: "spherexdata"
           source:
             serverPath: "/corral/main/projects/JPL-SPHEREx/yjyang/SPHEREx_RefCat"
-            server: "129.114.52.51"
+            server: "129.114.52.151"
             type: "nfs"
       volumeMounts:
         - containerPath: "/home"
