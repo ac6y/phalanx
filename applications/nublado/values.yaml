@@ -365,7 +365,7 @@ hub:
       cpu: "6m"
       memory: "130Mi"
 
-  # -- If set, this will be the URL for the hub itself, and user domains
+  # -- If set, the hub FQDN will be <nb>.<instance-fqdn> and user labs will
   # will have the hostname <username>.<hub-fqdn>
   # @default -- See `values.yaml`
   enableSubdomains: false
