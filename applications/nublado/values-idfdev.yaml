@@ -73,7 +73,7 @@ hub:
   internalDatabase: false
   # Gafaelfawr needs to be able to handle multiple domains before this
   # will work.
-  enableSubdomains: true
+  enableSubdomains: false
 cloudsql:
   enabled: true
   instanceConnectionName: "science-platform-dev-7696:us-central1:science-platform-dev-e9e11de2"
