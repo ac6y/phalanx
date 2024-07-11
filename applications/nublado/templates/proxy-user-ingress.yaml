@@ -11,6 +11,7 @@ metadata:
   labels:
     {{- include "nublado.labels" . | nindent 4 }}
 spec:
+  ingressClassName: nginx
   tls:
     - hosts:
       - {{ $wildHost | quote }}
