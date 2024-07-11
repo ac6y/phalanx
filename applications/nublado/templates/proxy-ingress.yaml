@@ -4,44 +4,29 @@
 {{- $baseObj := .Values.global.baseUrl | urlParse }}
 {{- $hubObj := set $baseObj "host" $hubHost }}
 {{- $hubUrl := $hubObj | urlJoin | quote }}
-apiVersion: gafaelfawr.lsst.io/v1alpha1
-kind: GafaelfawrIngress
+apiVersion: networking.k8s.io/v1
+kind: Ingress
 metadata:
   name: "proxy"
   labels:
     {{- include "nublado.labels" . | nindent 4 }}
-config:
-  baseUrl: {{ $hubUrl }}
-  authCacheDuration: "5m"
-  scopes:
-    all:
-      - "exec:notebook"
-  loginRedirect: true
-  delegate:
-    notebook: {}
-template:
-  metadata:
-    name: "proxy"
-    {{- with .Values.proxy.ingress.annotations }}
-    annotations:
-      {{- toYaml . | nindent 6 }}
-    {{- end }}
-  spec:
-    tls:
-      - hosts:
-        - {{ $hubHost | quote }}
-        secretName: nb-tls-secret
-    rules:
-      - host: {{ $hubHost | quote }}
-        http:
-          paths:
-            - path: "/"
-              pathType: "Prefix"
-              backend:
-                service:
-                  name: "proxy-public"
-                  port:
-                    name: "http"
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+      - {{ $hubHost | quote }}
+      secretName: nb-tls-secret
+  rules:
+    - host: {{ $hubHost | quote }}
+      http:
+        paths:
+          - path: "/"
+            pathType: "Prefix"
+            backend:
+              service:
+                name: "proxy-public"
+                port:
+                  name: "http"
 {{- else }}
 apiVersion: gafaelfawr.lsst.io/v1alpha1
 kind: GafaelfawrIngress
