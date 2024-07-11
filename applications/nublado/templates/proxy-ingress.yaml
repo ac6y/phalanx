@@ -1,33 +1,3 @@
-{{- if .Values.hub.enableSubdomains }}
-{{- $baseHost := .Values.global.host }}
-{{- $hubHost := print "nb." $baseHost }}
-{{- $baseObj := .Values.global.baseUrl | urlParse }}
-{{- $hubObj := set $baseObj "host" $hubHost }}
-{{- $hubUrl := $hubObj | urlJoin | quote }}
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: "proxy"
-  labels:
-    {{- include "nublado.labels" . | nindent 4 }}
-spec:
-  ingressClassName: nginx
-  tls:
-    - hosts:
-      - {{ $hubHost | quote }}
-      secretName: nb-tls-secret
-  rules:
-    - host: {{ $hubHost | quote }}
-      http:
-        paths:
-          - path: "/"
-            pathType: "Prefix"
-            backend:
-              service:
-                name: "proxy-public"
-                port:
-                  name: "http"
-{{- else }}
 apiVersion: gafaelfawr.lsst.io/v1alpha1
 kind: GafaelfawrIngress
 metadata:
@@ -62,4 +32,3 @@ template:
                   name: "proxy-public"
                   port:
                     name: "http"
-{{- end }}
