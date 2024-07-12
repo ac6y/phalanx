@@ -3,6 +3,26 @@ cadc-tap:
     image:
       repository: "lsstsqre/tap-schema-idfdev-sso"
 
+  mockdb:
+    enabled: true
+    image:
+      repository: "stvoutsin/tap-postgres-db"
+    tag: "2.4.0"
+
+  config:
+    # -- What type of backend?
+    backend: "pg"
+
+    pg:
+      # -- Postgres hostname:port to connect to
+      host: "mock-db:5432"
+
+      # -- Postgres database to connect to
+      database: ""
+
+      # -- Postgres username to use to connect
+      username: ""
+
   #cloudsql:
   #  enabled: true
   #  instanceConnectionName: "science-platform-dev-7696:us-central1:science-platform-dev-e9e11de2"
