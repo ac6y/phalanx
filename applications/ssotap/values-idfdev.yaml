@@ -6,8 +6,8 @@ cadc-tap:
   mockdb:
     enabled: true
     image:
-      repository: "stvoutsin/tap-postgres-db"
-    tag: "2.4.0"
+      repository: "lsst-sqre/tap-postgres-service"
+      tag: "1.18.2"
 
   config:
     # -- What type of backend?
