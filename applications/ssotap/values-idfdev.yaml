@@ -6,7 +6,7 @@ cadc-tap:
   mockdb:
     enabled: true
     image:
-      repository: "lsst-sqre/tap-postgres-service"
+      repository: "lsst-sqre/tap-postgres-db"
       tag: "1.18.2"
 
   config:
