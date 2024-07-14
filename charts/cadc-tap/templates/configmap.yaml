@@ -18,3 +18,14 @@ data:
 
     # authentication provider
     ca.nrc.cadc.auth.IdentityManager=org.opencadc.auth.StandardIdentityManager
+    org.opencadc.youcat.tapadm.maxActive=100
+    org.opencadc.youcat.tapadm.username=TAP_SCHEMA
+    org.opencadc.youcat.tapadm.password=TAP_SCHEMA
+    org.opencadc.youcat.tapadm.url=jdbc:mysql://cadc-tap-schema-db:3306/
+    org.opencadc.youcat.tapuser.maxActive=100
+    org.opencadc.youcat.tapuser.username=postgres
+    org.opencadc.youcat.tapuser.password=$TAP_DB_PASSWORD
+    org.opencadc.youcat.tapuser.url=jdbc:postgresql://mock-db:5432/db1
+    org.opencadc.youcat.uws.maxActive=100
+    org.opencadc.youcat.uws.username=postgres
+    org.opencadc.youcat.uws.url=jdbc:postgresql://cadc-tap-uws-db/
