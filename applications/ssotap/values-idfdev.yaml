@@ -8,6 +8,7 @@ cadc-tap:
     image:
       repository: "ghcr.io/lsst-sqre/tap-postgres-db"
       tag: "1.18.2"
+    port: "5432"
 
   config:
     # -- What type of backend?
@@ -23,7 +24,6 @@ cadc-tap:
       # -- Postgres username to use to connect
       username: ""
 
-      port: "5432"
 
   #cloudsql:
   #  enabled: true
