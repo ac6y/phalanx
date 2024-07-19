@@ -3,6 +3,29 @@ image:
   tag: "tickets-DM-45079-service-specific-checks"
 config:
   debug: true
+  availableServices:
+    - butler
+    - datalinker
+    - filestore-backup
+    - hips
+    - jira-data-proxy
+    - mobu
+    - noteburst
+    - nublado
+    - portal
+    - sasquatch
+    - semaphore
+    - siav2
+    - ssotap
+    - squareone
+    - sqlproxy-cross-project
+    - strimzi
+    - tap
+    - telegraf
+    - telegraf-ds
+    - times-square
+    - vault-secrets-operator
+    - vo-cutouts
   githubRefreshApp:
     acceptedGithubOrgs:
       - lsst-sqre

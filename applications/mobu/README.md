@@ -14,6 +14,7 @@ Continuous integration testing
 |-----|------|---------|-------------|
 | affinity | object | `{}` | Affinity rules for the mobu frontend pod |
 | config.autostart | list | `[]` | Autostart specification. Must be a list of mobu flock specifications. Each flock listed will be automatically started when mobu is started. |
+| config.availableServices | list | `[]` | Other services that are available in this environment. Mobu uses this to conditionally run notebooks based on whether or not certain services are available. This should be kept in sync with the services in the Phalanx environment config, which is admitedtly a pain. Eventually, mobu will get this from some kind of service discovery mechanism. |
 | config.debug | bool | `false` | If set to true, include the output from all flocks in the main mobu log and disable structured JSON logging. |
 | config.githubCiApp | object | disabled. | Configuration for the GitHub refresh app integration. See https://mobu.lsst.io/operations/github_ci_app.html#add-phalanx-configuration |
 | config.githubRefreshApp | object | disabled. | Configuration for the GitHub refresh app integration. See https://mobu.lsst.io/operations/github_refresh_app.html#add-phalanx-configuration |

@@ -26,6 +26,14 @@ config:
   # Each flock listed will be automatically started when mobu is started.
   autostart: []
 
+  # -- Other services that are available in this environment.
+  # Mobu uses this to conditionally run notebooks based on whether or not
+  # certain services are available. This should be kept in sync with the
+  # services in the Phalanx environment config, which is admitedtly a pain.
+  # Eventually, mobu will get this from some kind of service discovery
+  # mechanism.
+  availableServices: []
+
   # -- Configuration for the GitHub refresh app integration.
   # See https://mobu.lsst.io/operations/github_refresh_app.html#add-phalanx-configuration
   # @default -- disabled.

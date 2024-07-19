@@ -35,6 +35,8 @@ spec:
             - name: "MOBU_AUTOSTART_PATH"
               value: "/etc/mobu/autostart.yaml"
             {{- end }}
+            - name: "MOBU_AVAILABLE_SERVICES"
+              value: {{ toJson .Values.config.availableServices | quote }}
             - name: "MOBU_ENVIRONMENT_URL"
               value: {{ .Values.global.baseUrl }}
             - name: "MOBU_GAFAELFAWR_TOKEN"
