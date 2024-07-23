@@ -80,3 +80,7 @@ cloudsql:
   serviceAccount: "nublado@science-platform-dev-7696.iam.gserviceaccount.com"
 secrets:
   templateSecrets: true
+
+proxy:
+  chp:
+    extraCommandLineFlags: ["--log-level", "debug"]
