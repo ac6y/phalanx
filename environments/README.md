@@ -20,6 +20,7 @@
 | applications.exposurelog | bool | `false` | Enable the exposurelog application |
 | applications.fastapi-bootcamp | bool | `false` | Enable the fastapi-bootcamp application |
 | applications.filestore-backup | bool | `false` | Enable the filestore-backup application |
+| applications.fspurger | bool | `false` | Enable the fspurger application |
 | applications.gafaelfawr | bool | `true` | Enable the Gafaelfawr application. This is required by Phalanx since most other applications use `GafaelfawrIngress` |
 | applications.giftless | bool | `false` | Enable the giftless application |
 | applications.hips | bool | `false` | Enable the HiPS application |
