@@ -18,3 +18,4 @@ data:
 
     # authentication provider
     ca.nrc.cadc.auth.IdentityManager=org.opencadc.auth.StandardIdentityManager
+    ca.nrc.cadc.tap.UploadManager=ca.nrc.cadc.sample.RubinUploadManagerImpl
