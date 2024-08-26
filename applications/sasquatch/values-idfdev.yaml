@@ -79,8 +79,12 @@ telegraf-kafka-consumer:
       enabled: true
       database: "metrics"
       replicaCount: 1
+      timestamp_field: "timestamp_ns"
+      timestamp_format: "unix_ns"
       topicRegexps: |
         [ "lsst.square.metrics.*" ]
+      tags: |
+        [ "name", "service", "type"]
 
 kafdrop:
   cmdArgs: "--message.format=AVRO --topic.deleteEnabled=true --topic.createEnabled=true"

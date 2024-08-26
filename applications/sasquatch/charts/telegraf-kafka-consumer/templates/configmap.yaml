@@ -44,6 +44,9 @@ data:
       avro_timestamp_format = {{ default "unix" $value.timestamp_format | quote }}
       avro_union_mode = {{ default "nullable" $value.union_mode | quote }}
       avro_field_separator = {{ default "" $value.union_field_separator | quote }}
+      {{- if $value.measurement_field }}
+      avro_measurement_field = {{ $value.measurement_field | quote }}
+      {{- end }}
       {{ with $value.fields }}
       avro_fields = {{ $value.fields }}
       {{ end }}
