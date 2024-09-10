@@ -506,8 +506,18 @@ love-producer:
   - name: mtdometrajectory
     csc: MTDomeTrajectory:0 --log-level 10
     WEBSOCKET_HOST: love-nginx-service/love/manager/producers/ws/subscription
+  - name: mtm1m3-telemetry-01
+    csc: MTM1M3:0 --log-level 10 --periodic-data tel_forceActuatorData tel_inclinometerData tel_outerLoopData tel_accelerometerData tel_hardpointActuatorData tel_imsData tel_forceActuatorPressure tel_gyroData tel_powerSupplyData tel_pidData tel_hardpointMonitorData tel_appliedAzimuthForces tel_appliedAccelerationForces tel_appliedBalanceForces tel_appliedCylinderForces tel_appliedElevationForces tel_appliedForces tel_appliedThermalForces tel_appliedVelocityForces
+    WEBSOCKET_HOST: love-nginx-service/love/manager/m1m3/ws/subscription
+    resources:
+      requests:
+        cpu: 10m
+        memory: 200Mi
+      limits:
+        cpu: 100m
+        memory: 600Mi
   - name: mtm1m3
-    csc: MTM1M3:0 --log-level 10 --asynchronous-data evt_heartbeat evt_summaryState evt_logMessage evt_errorCode evt_logLevel
+    csc: MTM1M3:0 --log-level 10 --asynchronous-data evt_heartbeat evt_summaryState evt_logMessage evt_errorCode evt_logLevel evt_simulationMode evt_configurationApplied evt_configurationsAvailable evt_softwareVersions
     WEBSOCKET_HOST: love-nginx-service/love/manager/m1m3/ws/subscription
     resources:
       requests:
