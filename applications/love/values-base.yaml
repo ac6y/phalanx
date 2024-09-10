@@ -517,7 +517,7 @@ love-producer:
         cpu: 100m
         memory: 600Mi
   - name: mtm1m3
-    csc: MTM1M3:0 --log-level 10 --asynchronous-data evt_heartbeat evt_summaryState evt_logMessage evt_errorCode evt_logLevel evt_simulationMode evt_configurationApplied evt_configurationsAvailable evt_softwareVersions
+    csc: MTM1M3:0 --log-level 10 --asynchronous-data evt_heartbeat evt_summaryState evt_logMessage evt_errorCode evt_logLevel evt_simulationMode evt_configurationApplied evt_configurationsAvailable evt_softwareVersions evt_detailedState
     WEBSOCKET_HOST: love-nginx-service/love/manager/m1m3/ws/subscription
     resources:
       requests:
