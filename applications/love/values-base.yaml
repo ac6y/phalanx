@@ -507,7 +507,7 @@ love-producer:
     csc: MTDomeTrajectory:0 --log-level 10
     WEBSOCKET_HOST: love-nginx-service/love/manager/producers/ws/subscription
   - name: mtm1m3
-    csc: MTM1M3:0 --log-level 10
+    csc: MTM1M3:0 --log-level 10 --asynchronous-data heartbeat summaryState logMessage errorCode
     WEBSOCKET_HOST: love-nginx-service/love/manager/m1m3/ws/subscription
     resources:
       requests:
