@@ -15,7 +15,7 @@ config:
   #cadcBaseUuid: "82c6fc76-b7d3-4368-92a9-6a468dfa23dc"
 
   oidc:
-    clientId: vcluster--usdf-rsp-int
+    clientId: vcluster--usdf-cm-dev
     audience: "vcluster--usdf-cm-dev"
     loginUrl: "https://dex.slac.stanford.edu/auth"
     tokenUrl: "https://dex.slac.stanford.edu/token"
