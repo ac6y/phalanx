@@ -13,7 +13,6 @@ Replicates data from the APDB to the PPDB
 | affinity | object | `{}` | Affinity rules for the ppdb-replication deployment pod |
 | config.additionalS3ProfileName | string | `nil` | Additional S3 profile name |
 | config.additionalS3ProfileUrl | string | `nil` | Additional S3 profile URL |
-| config.apdbConfig | string | `nil` | APDB config file resource |
 | config.apdbIndexUri | string | `nil` | APDB index URI |
 | config.checkInterval | string | `nil` | Time to wait before checking for new chunks, if no chunk appears |
 | config.disableBucketValidation | int | `1` | Disable bucket validation in LSST S3 tools |
@@ -25,7 +24,6 @@ Replicates data from the APDB to the PPDB
 | config.monRules | string | `nil` | Comma-separated list of monitoring filter rules |
 | config.pathPrefix | string | `"/ppdb-replication"` | URL path prefix |
 | config.persistentVolumeClaims | list | `[]` | Persistent volume claims |
-| config.ppdbConfig | string | `nil` | PPDB config file resource |
 | config.s3EndpointUrl | string | `nil` | S3 endpoint URL |
 | config.updateExisting | bool | `false` | Allow updates to already replicated data |
 | config.volumeMounts | list | `[]` | Volume mounts |

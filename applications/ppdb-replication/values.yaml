@@ -73,10 +73,10 @@ config:
   pathPrefix: "/ppdb-replication"
 
   # -- APDB config file resource
-  apdbConfig: null
+  # apdbConfig: null
 
   # -- PPDB config file resource
-  ppdbConfig: null
+  # ppdbConfig: null
 
   # -- APDB index URI
   apdbIndexUri: null

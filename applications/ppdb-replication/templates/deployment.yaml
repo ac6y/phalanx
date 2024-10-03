@@ -51,34 +51,31 @@ spec:
               mountPath: "/tmp/ppdb-replication-secrets-raw"
               readOnly: true
       containers:
-        - name: {{ .Chart.Name }}
+        {{- $workers := required "workers is required" .Values.workers }}
+        {{- range $worker := $workers }}
+        - name: {{ $.Chart.Name }}-{{ $worker.name }}
           envFrom:
             - configMapRef:
                 name: "ppdb-replication"
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          image: "{{ $.Values.image.repository }}:{{ $.Values.image.tag | default $.Chart.AppVersion }}"
+          imagePullPolicy: {{ $.Values.image.pullPolicy }}
           env:
-            - name: AWS_SHARED_CREDENTIALS_FILE
-              value: "/app/secrets/aws-credentials.ini"
-            - name: PGPASSFILE
-              value: "/app/secrets/postgres-credentials.txt"
-            - name: LSST_DB_AUTH
-              value: "/app/secrets/db-auth.yaml"
-            - name: S3_ENDPOINT_URL
-              value: {{ .Values.config.s3EndpointUrl | quote }}
-            - name: LSST_RESOURCES_S3_PROFILE_{{ .Values.config.additionalS3ProfileName }}
-              value: {{ .Values.config.additionalS3ProfileUrl | quote }}
-            - name: LSST_DISABLE_BUCKET_VALIDATION
-              value: {{ .Values.config.disableBucketValidation | quote }}
+            - name: PPDB_REPLICATION_APDB_CONFIG
+              value: {{ required "apdbConfig is required" $worker.apdbConfig | quote }}
+            - name: PPDB_REPLICATION_PPDB_CONFIG
+              value: {{ required "ppdbConfig is required" $worker.ppdbConfig | quote }}
+            - name: PPDB_REPLICATION_LOG_LEVEL
+              value: {{ $worker.logLevel | quote }}
           volumeMounts:
             - name: "ppdb-replication-secrets"
               mountPath: "/app/secrets"
               readOnly: true
-            {{- with .Values.config.volumeMounts }}
+            {{- with $.Values.config.volumeMounts }}
             {{- . | toYaml | nindent 12 }}
             {{- end }}
           resources:
-            {{- toYaml .Values.resources | nindent 12 }}
+            {{- toYaml $.Values.resources | nindent 12 }}
+        {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

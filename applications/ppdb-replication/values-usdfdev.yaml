@@ -8,10 +8,10 @@ config:
   logProfile: "development"
 
   # -- APDB config file resource
-  apdbConfig: "label:pp-prod:lsstcomcamsim-or4"
+  # apdbConfig: "label:pp-prod:lsstcomcamsim-or4"
 
   # -- PPDB config file resource
-  ppdbConfig: "/sdf/group/rubin/user/jeremym/ppdb-replication/config/ppdb-replication-test-1.yaml"
+  # ppdbConfig: "/sdf/group/rubin/user/jeremym/ppdb-replication/config/ppdb-replication-test-1.yaml"
 
   # -- APDB index URI
   apdbIndexUri: "/sdf/group/rubin/shared/apdb_config/apdb-index.yaml"
@@ -42,3 +42,21 @@ config:
       storageClassName: sdf-group-rubin
     - name: sdf-data-rubin
       storageClassName: sdf-data-rubin
+
+workers:
+
+  - name: "worker-1"
+    apdbConfig: "label:pp-prod:lsstcomcamsim-or4"
+    ppdbConfig: "/sdf/group/rubin/user/jeremym/ppdb-replication/config/ppdb-replication-test-1.yaml"
+    logLevel: "INFO"
+    # TODO: Other worker-specific config we might want to set
+    # monRules: null
+    # updateExisting: false
+    # minWaitTime: null
+    # maxWaitTime: null
+    # checkInterval: null
+
+    # resources per worker?
+
+  # Next worker...
+  # - name: "worker-2"
