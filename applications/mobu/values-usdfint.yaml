@@ -23,3 +23,15 @@ config:
           repo_url: "https://github.com/lsst-sqre/system-test.git"
           repo_ref: "prod"
         restart: true
+    - name: "dfuchs-test"
+      count: 1
+      users:
+        - username: "bot-mobu-dfuchs-test"
+      scopes:
+        - "exec:notebook"
+      business:
+        type: "NotebookRunner"
+        options:
+          repo_url: "https://github.com/lsst-sqre/dfuchs-test-mobu.git"
+          repo_ref: "exceptions"
+        restart: true

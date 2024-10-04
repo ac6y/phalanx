@@ -94,3 +94,15 @@ config:
         options:
           query_set: "dp0.2"
         restart: true
+    - name: "dfuchs-test"
+      count: 1
+      users:
+        - username: "bot-mobu-dfuchs-test"
+      scopes:
+        - "exec:notebook"
+      business:
+        type: "NotebookRunner"
+        options:
+          repo_url: "https://github.com/lsst-sqre/dfuchs-test-mobu.git"
+          repo_ref: "exceptions"
+        restart: true
