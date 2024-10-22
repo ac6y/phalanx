@@ -10,7 +10,7 @@ dependencies:
   alias: test42
   version: 1.0.0
   repository: file://../../charts/csc
-- name: csc2
+- name: csc
   alias: test43
   version: 1.0.0
   repository: file://../../charts/csc
