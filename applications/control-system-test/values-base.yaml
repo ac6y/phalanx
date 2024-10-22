@@ -5,6 +5,13 @@ test42:
   env:
     RUN_ARG: 42
 
+test43:
+  image:
+    repository: ts-dockerhub.lsst.org/test
+    pullPolicy: Always
+  env:
+    RUN_ARG: 43
+
 integration-testing:
   enabled: true
   envEfd: base_efd
