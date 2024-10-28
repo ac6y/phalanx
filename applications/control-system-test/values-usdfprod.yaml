@@ -1,0 +1,6 @@
+test42:
+  image:
+    repository: rubin-cr.lsst.org/test
+    pullPolicy: Always
+  env:
+    RUN_ARG: 43
