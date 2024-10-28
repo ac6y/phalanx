@@ -19,16 +19,30 @@ prompt-proto-service:
   instrument:
     pipelines:
       main: >-
-        (survey="comcam-ap")=[${PROMPT_PROCESSING_DIR}/pipelines/LSSTComCam/ApPipe.yaml,
+        (survey="BLOCK-320")=[${PROMPT_PROCESSING_DIR}/pipelines/LSSTComCam/ApPipe.yaml,
         ${PROMPT_PROCESSING_DIR}/pipelines/LSSTComCam/SingleFrame.yaml,
         ${PROMPT_PROCESSING_DIR}/pipelines/LSSTComCam/Isr.yaml]
-        (survey="BLOCK-T208")=[${PROMPT_PROCESSING_DIR}/pipelines/LSSTComCam/Isr-cal.yaml]
-        (survey="BLOCK-T60")=[${PROMPT_PROCESSING_DIR}/pipelines/LSSTComCam/Isr-cal.yaml]
+        # 10/28: BLOCK-T215, BLOCK-T60, BLOCK-T94, BLOCK-T61, BLOCK-T64, BLOCK-T180, BLOCK-T183, BLOCK-T81
+        (survey="BLOCK-T215")=[${PROMPT_PROCESSING_DIR}/pipelines/LSSTComCam/Isr.yaml]
+        (survey="BLOCK-T60")=[${PROMPT_PROCESSING_DIR}/pipelines/LSSTComCam/Isr.yaml]
+        (survey="BLOCK-T94")=[${PROMPT_PROCESSING_DIR}/pipelines/LSSTComCam/Isr.yaml]
+        (survey="BLOCK-T61")=[${PROMPT_PROCESSING_DIR}/pipelines/LSSTComCam/Isr.yaml]
+        (survey="BLOCK-T64")=[${PROMPT_PROCESSING_DIR}/pipelines/LSSTComCam/Isr.yaml]
+        (survey="BLOCK-T180")=[${PROMPT_PROCESSING_DIR}/pipelines/LSSTComCam/Isr.yaml]
+        (survey="BLOCK-T183")=[${PROMPT_PROCESSING_DIR}/pipelines/LSSTComCam/Isr.yaml]
+        (survey="BLOCK-T81")=[${PROMPT_PROCESSING_DIR}/pipelines/LSSTComCam/Isr.yaml]
         (survey="")=[]
       preprocessing: >-
-        (survey="comcam-ap")=[${PROMPT_PROCESSING_DIR}/pipelines/LSSTComCam/Preprocessing.yaml]
-        (survey="BLOCK-T208")=[]
+        (survey="BLOCK-320")=[${PROMPT_PROCESSING_DIR}/pipelines/LSSTComCam/Preprocessing.yaml]
+        # 10/28: BLOCK-T215, BLOCK-T60, BLOCK-T94, BLOCK-T61, BLOCK-T64, BLOCK-T180, BLOCK-T183, BLOCK-T81
+        (survey="BLOCK-T215")=[]
         (survey="BLOCK-T60")=[]
+        (survey="BLOCK-T94")=[]
+        (survey="BLOCK-T61")=[]
+        (survey="BLOCK-T64")=[]
+        (survey="BLOCK-T180")=[]
+        (survey="BLOCK-T183")=[]
+        (survey="BLOCK-T81")=[]
         (survey="")=[]
     calibRepo: s3://rubin-summit-users
 
