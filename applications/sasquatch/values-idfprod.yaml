@@ -1,0 +1,177 @@
+strimzi-kafka:
+  kafka:
+    externalListener:
+      tls:
+        enabled: true
+      bootstrap:
+        loadBalancerIP: "34.55.132.0"
+        host: sasquatch-kafka-bootstrap.lsst.cloud
+
+      brokers:
+        - broker: 3
+          loadBalancerIP: "34.122.37.250"
+          host: sasquatch-kafka-3.lsst.cloud
+        - broker: 4
+          loadBalancerIP: "34.72.131.177"
+          host: sasquatch-kafka-4.lsst.cloud
+        - broker: 5
+          loadBalancerIP: "34.72.103.157"
+          host: sasquatch-kafka-5.lsst.cloud
+  # mirrormaker2:
+  #   enabled: true
+  #   source:
+  #     bootstrapServer: sasquatch-dev-kafka-bootstrap.lsst.cloud:9094
+  #     topicsPattern: "registry-schemas, lsst.sal.*, lsst.dm.*"
+  #   resources:
+  #     requests:
+  #       cpu: 2
+  #       memory: 4Gi
+  #     limits:
+  #       cpu: 4
+  #       memory: 8Gi
+  users:
+  #   tsSalKafka:
+  #     enabled: true
+  #   camera:
+  #     enabled: true
+  #   replicator:
+  #     enabled: true
+    kafdrop:
+      enabled: true
+    telegraf:
+      enabled: true
+  #   kafkaConnectManager:
+  #     enabled: true
+  kraft:
+    enabled: true
+  kafkaController:
+    enabled: true
+    resources:
+      requests:
+        # memory: 16Gi
+        memory: 8Gi
+        # cpu: "2"
+        cpu: "1"
+      limits:
+        # memory: 16Gi
+        # cpu: "2"
+        memory: 8Gi
+        cpu: "1"
+  registry:
+    ingress:
+      enabled: true
+      annotations:
+        nginx.ingress.kubernetes.io/rewrite-target: /$2
+      hostname: data.lsst.cloud
+      path: /schema-registry(/|$)(.*)
+  connect:
+    enabled: false
+
+influxdb:
+  ingress:
+    enabled: true
+    hostname: data.lsst.cloud
+  resources:
+    requests:
+      # memory: 16Gi
+      # cpu: 2
+      memory: 8Gi
+      cpu: 1
+    limits:
+      # memory: 16Gi
+      # cpu: 2
+      memory: 8Gi
+      cpu: 1
+
+telegraf-kafka-consumer:
+  enabled: true
+  kafkaConsumers:
+    example:
+      enabled: true
+      replicaCount: 1
+      database: "lsst.example"
+      tags: |
+        [ "band", "instrument" ]
+      timestamp_format: "unix_ms"
+      timestamp_field: "timestamp"
+      topicRegexps: |
+        [ "lsst.example" ]
+#     backpack:
+#       enabled: true
+#       replicaCount: 1
+#       database: "lsst.backpack"
+#       timestamp_format: "unix"
+#       timestamp_field: "timestamp"
+#       topicRegexps: |
+#         [ "lsst.backpack" ]
+#     atcamera:
+#       enabled: true
+#       replicaCount: 1
+#       database: "lsst.ATCamera"
+#       timestamp_format: "unix_ms"
+#       timestamp_field: "timestamp"
+#       tags: |
+#         [ "Agent", "Aspic", "Location", "Raft", "Reb", "Sensor", "Source" ]
+#       topicRegexps: |
+#         [ "lsst.ATCamera" ]
+#     cccamera:
+#       enabled: true
+#       replicaCount: 1
+#       database: "lsst.CCCamera"
+#       timestamp_format: "unix_ms"
+#       timestamp_field: "timestamp"
+#       tags: |
+#         [ "Agent", "Aspic", "Cold", "Cryo", "Hardware", "Location", "Ps", "RTD", "Raft", "Reb", "Segment", "Sensor", "Source" ]
+#       topicRegexps: |
+#         [ "lsst.CCCamera" ]
+#     mtcamera:
+#       enabled: true
+#       replicaCount: 1
+#       database: "lsst.MTCamera"
+#       timestamp_format: "unix_ms"
+#       timestamp_field: "timestamp"
+#       tags: |
+#         [ "Agent", "Aspic", "Axis", "Canbus", "Cip", "Clamp", "Cold", "Controller", "Cryo", "Gateway", "Hardware", "Hip", "Hook", "Latch", "Location", "Ps", "RTD", "Raft", "Reb", "Segment", "Sensor", "Socket", "Source", "Truck" ]
+#       topicRegexps: |
+#         [ "lsst.MTCamera" ]
+
+kafdrop:
+  ingress:
+    enabled: true
+    hostname: data.lsst.cloud
+
+# rest-proxy:
+#   enabled: true
+#   ingress:
+#     enabled: true
+#     hostname: data.lsst.cloud
+#   kafka:
+#     topicPrefixes:
+#       - lsst.example
+#       - lsst.backpack
+#       - lsst.ATCamera
+#       - lsst.CCCamera
+#       - lsst.MTCamera
+
+chronograf:
+  ingress:
+    enabled: true
+    hostname: data.lsst.cloud
+
+  env:
+    GENERIC_NAME: "OIDC"
+    GENERIC_AUTH_URL: https://data.lsst.cloud/auth/openid/login
+    GENERIC_TOKEN_URL: https://data.lsst.cloud/auth/openid/token
+    USE_ID_TOKEN: 1
+    JWKS_URL: https://data.lsst.cloud/.well-known/jwks.json
+    GENERIC_API_URL: https://data.lsst.cloud/auth/openid/userinfo
+    GENERIC_SCOPES: openid
+    GENERIC_API_KEY: sub
+    PUBLIC_URL: https://data.lsst.cloud/
+    # STATUS_FEED_URL: https://raw.githubusercontent.com/lsst-sqre/rsp_broadcast/main/jsonfeeds/idfint.json
+
+app-metrics:
+  enabled: true
+  apps:
+    - gafaelfawr
+    - mobu
